@@ -1,67 +1,44 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-# !important
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/nicohvi/.oh-my-zsh
+export MYVIMRC=~/.vimrc
+export GOPATH=~/Workspace/go
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-ZSH_THEME=nico
+ZSH_THEME="nico"
 
-# alias glory
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-material.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+# Alias glory
 alias be="bundle exec"
 alias gs="git status"
-alias vi='vim' # lets always use vim
+alias vi='vim' # Let's always use vim
 alias rc='rails c'
-alias vim="/usr/local/Cellar/vim/7.4.430_1/bin/vim" # and while we're at it, let's use vim 7.4
 alias zshconf="vi ~/.zshrc"
+alias tmuxconf="vi ~/.tmux.conf"
+alias reload="source ~/.zshrc"
+alias ru="ruby"
+alias pgstart="postgres -D /usr/local/var/postgres"
+#alias rab="rabbitmq-server"
+#alias tor="elm reactor"
+alias n=". ~/.nvm/nvm.sh"
+alias jek="jekyll serve -w"
+alias publish="sh publish.sh"
+alias serve="mix phoenix.server"
+alias debug="iex -S mix phoenix.server"
 
-# set local to Norwegian UTF-8
-LANG=no_NO.UTF-8
+ENABLE_CORRECTION="true"
 
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# so tmux sessions keep their name
-DISABLE_AUTO_TITLE=true
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-
-# Plugins galore
-# Located in ~/.oh-my-zsh/custom/plugins
+# Plugins
 plugins=(git autojump)
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
-PATH="$HOME/bin:$HOME/symlinks:$HOME/.rbenv/bin:/usr/textbin:$HOME:$PATH"
-export PATH=":$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
-
-# change default postgres user
-export PGUSER="nicohvi"
-
-# enable rbenv shims.
-eval "$(rbenv init - zsh)"
-
-# open vim when invoking *gem open*
-export GEM_EDITOR="vim"
-export BUNDLER_EDITOR="vim"
-
-# node version management
-source ~/.nvm/nvm.sh
-
-# ----- do NOT remove
+# User configuration
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:$GOPATH/bin"
 source $ZSH/oh-my-zsh.sh
 
-eval "nvm use 4 --silent"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+export NVM_DIR="/Users/nicohvi/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
+
