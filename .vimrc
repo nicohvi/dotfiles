@@ -21,7 +21,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " YouCompleteMe -> auto-completion
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 " NerdTree -> directory hopping
 Plugin 'scrooloose/nerdtree'
@@ -31,6 +31,7 @@ Plugin 'lambdatoast/elm.vim'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'slim-template/vim-slim'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'wavded/vim-stylus'
 
 " Commenting
 Plugin 'scrooloose/nerdcommenter'
@@ -75,6 +76,8 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+nmap <leader>n :NERDTreeFind<CR>
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>

@@ -11,6 +11,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-material.dark.sh"
 
 # Alias glory
 alias be="bundle exec"
+alias cl="clear"
 alias gs="git status"
 alias vi='vim' # Let's always use vim
 alias rc='rails c'
@@ -18,9 +19,6 @@ alias zshconf="vi ~/.zshrc"
 alias tmuxconf="vi ~/.tmux.conf"
 alias reload="source ~/.zshrc"
 alias ru="ruby"
-alias pgstart="postgres -D /usr/local/var/postgres"
-#alias rab="rabbitmq-server"
-#alias tor="elm reactor"
 alias n=". ~/.nvm/nvm.sh"
 alias jek="jekyll serve -w"
 alias publish="sh publish.sh"
@@ -34,11 +32,10 @@ plugins=(git autojump)
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # User configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:$GOPATH/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:$GOPATH/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:`yarn global bin`"
 source $ZSH/oh-my-zsh.sh
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export NVM_DIR="/Users/nicohvi/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
 
